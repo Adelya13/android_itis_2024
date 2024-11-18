@@ -4,67 +4,67 @@ import kotlin.jvm.Throws
 
 
 fun main() {
-//    println("Hello")
-//
-//    val a = arrayListOf<Int>()
-//    a.add(3)
-//    var ab: Int? = null
-//    ab = 3
-//
-//    println(test(a = 0 , b = 5))
-//
-//    val v: Int? = null
-//
-//
-//    val list = arrayListOf<String>()
-//    val list1 = arrayListOf<String>()
-//
-//    list1.add("27272")
-//
-//    list.size
-//
-//    list.add("1111")
-//    println(list[0])
-//    list.size
-//    list.addAll(list1)
-//
-//
-//    list.forEach{ el ->
-//        println(el)
-//    }
-//    println(list)
-//    try{
-//        test1(1)
-//    } catch (e: Exception){
-//        println(e.message)
-//    }
-//
-//    val map = mapOf(1 to "ddddd")
-//
-//    map.getValue(1)
-//
-//    val set = setOf(1, 2 , 3, 1, 2)
-//
-//    println(set)
-//
-//
-//    val user: User? = User("null", 12)
-//
-//    val ex: String? = "Name"
-//    val length: Int = ex?.length ?: -1
-//
-//
-//    val s1 = Student("Alena", "aaaa")
-//    val s2 = Student("Yan", "333")
-//    val s3 = Student("Anna", "33")
-//
-//    s1.say("aaaaa")
-//    s2.say("ddddd")
-//    s3.say("gggggg")
-//
-//    println("${s1.nameLength}")
-//    println("${s2.nameLength}")
-//    println("${s3.nameLength}")
+    println("Hello")
+
+    val a = arrayListOf<Int>()
+    a.add(3)
+    var ab: Int? = null
+    ab = 3
+
+    println(test(a = 0 , b = 5))
+
+    val v: Int? = null
+
+
+    val list = arrayListOf<String>()
+    val list1 = arrayListOf<String>()
+
+    list1.add("27272")
+
+    list.size
+
+    list.add("1111")
+    println(list[0])
+    list.size
+    list.addAll(list1)
+
+
+    list.forEach{ el ->
+        println(el)
+    }
+    println(list)
+    try{
+        test1(1)
+    } catch (e: Exception){
+        println(e.message)
+    }
+
+    val map = mapOf(1 to "ddddd")
+
+    map.getValue(1)
+
+    val set = setOf(1, 2 , 3, 1, 2)
+
+    println(set)
+
+
+    val user: User? = User("null", 12)
+
+    val ex: String? = "Name"
+    val length: Int = ex?.length ?: -1
+
+
+    val s1 = Student("Alena", "aaaa")
+    val s2 = Student("Yan", "333")
+    val s3 = Student("Anna", "33")
+
+    s1.say("aaaaa")
+    s2.say("ddddd")
+    s3.say("gggggg")
+
+    println("${s1.nameLength}")
+    println("${s2.nameLength}")
+    println("${s3.nameLength}")
 
 
     println("""\.""".toRegex())
@@ -140,7 +140,6 @@ val Student.nameLength: Int
     get() = name.length
 
 
-const val NAME_NWWNWNW_SJSJ = ""
 interface Eat {
     fun eat()
 }

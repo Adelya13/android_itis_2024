@@ -96,6 +96,7 @@ fun Student1.toUser1() = User1(
 )
 
 
+//пример с extension
 
 //open class View(){
 //    open fun click(){

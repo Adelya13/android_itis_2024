@@ -52,23 +52,6 @@ class FirstActivity: AppCompatActivity() {
                     if (intent.resolveActivity(packageManager) != null) {
                         startActivity(chooserIntent)
                     }
-
-//                    val intent = Intent()
-//                    intent.setAction(Intent.ACTION_SEND)
-//                    intent.putExtra(Intent.EXTRA_TEXT, "message")
-//                    intent.setType("text/plan")
-//
-//                    val chooserIntent = Intent.createChooser(
-//                        intent,
-//                        "Chooser"
-//                    )
-//
-//
-//                    if (intent.resolveActivity(packageManager) != null) {
-//                        startActivity(chooserIntent)
-//                    }
-
-
                 }
             }
         }
