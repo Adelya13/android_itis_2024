@@ -18,44 +18,25 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
 
-    <TextView
-        android:id="@+id/tv_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="HELLO"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/button_1" />
-
     <Button
         android:id="@+id/button_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_one"
-        app:layout_constraintBottom_toTopOf="@id/button_2"
+        app:layout_constraintTop_toBottomOf="@+id/cat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:name="com.example.androiditis2024.HomeFragment"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_1" />
 
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <Button
-        android:id="@+id/button_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toTopOf="@id/button_3"
-        app:layout_constraintEnd_toEndOf="@+id/button_1"
-        android:text="@string/button_2" />
-
-    <Button
-        android:id="@+id/button_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Button 3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/button_2"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
