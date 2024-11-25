@@ -16,7 +16,6 @@ class FirstActivity: AppCompatActivity() {
 
     private var binding: FirstActivityBinding? = null
 
-    @SuppressLint("QueryPermissionsNeeded")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.first_activity)
