@@ -1,7 +1,6 @@
 package com.example.androiditis2024
 
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
