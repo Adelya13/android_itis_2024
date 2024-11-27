@@ -6,7 +6,9 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.androiditis2024.AnimeRepository.anime
 import com.example.androiditis2024.databinding.FirstActivityBinding
@@ -23,19 +25,35 @@ class FirstActivity: AppCompatActivity() {
             setContentView(it.root)
         }
 
+
         binding?.let {
+            val dividerItemDecoration = DividerItemDecoration(this, RecyclerView.VERTICAL)
+            val spaceDecorator = SpaceItemDecorator(this, 8f)
+
+            it.swipeRefresh.setOnRefreshListener {
+//                onRefresh()
+            }
+
             it.rvAnime.adapter = AnimeAdapter(
                 list = anime,
                 glide = Glide.with(this)
             ) { anime ->
                 it.root.showSnackBar(anime.name)
-
             }
+
+
+            it.rvAnime.addItemDecoration(dividerItemDecoration)
+            it.rvAnime.addItemDecoration(spaceDecorator)
             it.rvAnime.layoutManager = LinearLayoutManager(this)
         }
         setSupportActionBar(findViewById(R.id.base_toolbar))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+    }
+
+    private fun onRefresh() {
+        //refresh
+        binding?.swipeRefresh?.isRefreshing = false
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

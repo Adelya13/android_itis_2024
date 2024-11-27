@@ -19,18 +19,27 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_anime"
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:scrollbars="none"
-        tools:itemCount="10"
-        tools:listitem="@layout/item_anime"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/base_toolbar"
-        />
+        app:layout_constraintTop_toBottomOf="@id/base_toolbar">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_anime"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scrollbars="none"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_anime"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 
 

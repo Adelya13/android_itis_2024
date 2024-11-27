@@ -52,4 +52,5 @@ dependencies {
     implementation(libs.material.v150)
     implementation(libs.androidx.recyclerview)
     implementation(libs.glide)
+    implementation(libs.androidx.swiperefreshlayout)
 }
