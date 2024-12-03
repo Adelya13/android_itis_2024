@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.androiditis2024.AnimeRepository.anime
+import com.example.androiditis2024.AnimeRepository.baseItems
 import com.example.androiditis2024.databinding.FirstActivityBinding
 
 class FirstActivity: AppCompatActivity() {
@@ -35,11 +35,14 @@ class FirstActivity: AppCompatActivity() {
             }
 
             it.rvAnime.adapter = AnimeAdapter(
-                list = anime,
+                list = baseItems,
                 glide = Glide.with(this)
             ) { anime ->
-                it.root.showSnackBar(anime.name)
+                it.root.showSnackBar((anime as BaseItemModel.AnimeUiModel).name)
+            }.also {
+                it.setHasStableIds(true)
             }
+
 
 
             it.rvAnime.addItemDecoration(dividerItemDecoration)

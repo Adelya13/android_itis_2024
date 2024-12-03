@@ -76,4 +76,25 @@ object AnimeRepository {
             imagePath = "https://moe.shikimori.one/uploads/poster/animes/16498/main_2x-3eaf768f3122e9c016485cbb9deebde1.webp"
         )
     )
+
+    val animeUI = anime.map {
+        val titleColor = if(it.name == "Naruto"){
+            R.color.purple_200
+        } else R.color.black
+
+        BaseItemModel.AnimeUiModel(
+            id = it.id,
+            name = it.name,
+            description = it.description,
+            imagePath = it.imagePath,
+            titleColor = titleColor
+        )
+    }
+
+    val baseItems = arrayListOf<BaseItemModel>().apply {
+        add(BaseItemModel.Title("Избранное"))
+        addAll(animeUI.take(4))
+        add(BaseItemModel.Title("Популярное"))
+        addAll(animeUI.subList(4, animeUI.size))
+    }
 }

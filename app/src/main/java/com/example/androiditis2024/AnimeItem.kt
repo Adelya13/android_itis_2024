@@ -10,18 +10,19 @@ import com.example.androiditis2024.databinding.ItemAnimeBinding
 class AnimeItem(
     private val binding: ItemAnimeBinding,
     private val glide: RequestManager,
-    private val listener: (Anime) -> Unit
+    private val listener: (BaseItemModel.AnimeUiModel) -> Unit
 ): RecyclerView.ViewHolder(binding.root) {
 
     private val option = RequestOptions
         .diskCacheStrategyOf(DiskCacheStrategy.ALL)
         .priority(Priority.HIGH)
 
-    fun onBind(anime: Anime){
+    fun onBind(anime: BaseItemModel.AnimeUiModel){
         with(binding){
             titleAnime.text = anime.name
             descriptionAnime.text = anime.description
 
+            titleAnime.setTextColor(itemView.context.getColor(anime.titleColor))
             root.setOnClickListener{
                 listener.invoke(anime)
             }
