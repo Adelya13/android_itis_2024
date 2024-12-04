@@ -10,12 +10,14 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.androiditis2024.AnimeRepository.animeUI
 import com.example.androiditis2024.AnimeRepository.baseItems
 import com.example.androiditis2024.databinding.FirstActivityBinding
 
 class FirstActivity: AppCompatActivity() {
 
     private var binding: FirstActivityBinding? = null
+    private var adapter: AnimeListAdapter?  = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,25 +26,37 @@ class FirstActivity: AppCompatActivity() {
         binding = FirstActivityBinding.inflate(layoutInflater).also {
             setContentView(it.root)
         }
+        adapter = AnimeListAdapter(glide = Glide.with(this)){
+            onAnimeClick(it)
+        }
 
 
         binding?.let {
             val dividerItemDecoration = DividerItemDecoration(this, RecyclerView.VERTICAL)
             val spaceDecorator = SpaceItemDecorator(this, 8f)
 
+
+
             it.swipeRefresh.setOnRefreshListener {
 //                onRefresh()
             }
 
-            it.rvAnime.adapter = AnimeAdapter(
-                list = baseItems,
-                glide = Glide.with(this)
-            ) { anime ->
-                it.root.showSnackBar((anime as BaseItemModel.AnimeUiModel).name)
-            }.also {
-                it.setHasStableIds(true)
-            }
+            it.rvAnime.adapter = adapter
 
+//                AnimeAdapter(
+//                list = baseItems,
+//                glide = Glide.with(this)
+//            ) { anime ->
+//                it.root.showSnackBar((anime as BaseItemModel.AnimeUiModel).name)
+//            }.also {
+//                it.setHasStableIds(true)
+//            }
+
+
+            adapter?.submitList(animeUI) {
+                it.rvAnime.scrollToPosition(0)
+
+            }
 
 
             it.rvAnime.addItemDecoration(dividerItemDecoration)
@@ -57,6 +71,20 @@ class FirstActivity: AppCompatActivity() {
     private fun onRefresh() {
         //refresh
         binding?.swipeRefresh?.isRefreshing = false
+    }
+
+    private fun onAnimeClick(anime: BaseItemModel.AnimeUiModel){
+        val index = AnimeRepository.anime.indexOfFirst { it.id == anime.id }
+        val originalAnime = AnimeRepository.anime[index]
+        val newAnime = originalAnime.copy(
+            isFavourite = !originalAnime.isFavourite
+        )
+
+        AnimeRepository.anime.removeAt(index)
+        AnimeRepository.anime.add(index, newAnime)
+
+        adapter?.submitList(animeUI)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

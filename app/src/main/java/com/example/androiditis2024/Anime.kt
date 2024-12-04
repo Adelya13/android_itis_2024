@@ -6,7 +6,8 @@ data class Anime(
     val id: Long,
     val name: String,
     val description: String,
-    val imagePath: String
+    val imagePath: String,
+    val isFavourite: Boolean = false,
 )
 
 sealed class BaseItemModel {
@@ -15,6 +16,7 @@ sealed class BaseItemModel {
         val name: String,
         val description: String,
         val imagePath: String,
+        val isFavourite: Boolean = false,
         @ColorRes val titleColor: Int
     ) : BaseItemModel()
 

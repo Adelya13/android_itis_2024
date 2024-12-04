@@ -1,10 +1,15 @@
 package com.example.androiditis2024
 
+import android.os.Bundle
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Priority
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.example.androiditis2024.AnimeListAdapter.Companion.KEY_DESCRIPTION
+import com.example.androiditis2024.AnimeListAdapter.Companion.KEY_FAVOURITE
+import com.example.androiditis2024.AnimeListAdapter.Companion.KEY_NAME
 import com.example.androiditis2024.databinding.ItemAnimeBinding
 
 class AnimeItem(
@@ -27,6 +32,8 @@ class AnimeItem(
                 listener.invoke(anime)
             }
 
+            btnFavourite.setFavourite(anime.isFavourite)
+
             glide
                 .load(anime.imagePath)
                 .placeholder(R.drawable.cat)
@@ -34,5 +41,34 @@ class AnimeItem(
                 .apply(option)
                 .into(imgAnime)
         }
+    }
+
+     fun update(bundle: Bundle){
+        if (bundle.containsKey(KEY_NAME)) {
+            bundle.getString(KEY_NAME).also {
+                binding.titleAnime.text = it
+            }
+        }
+        if (bundle.containsKey(KEY_DESCRIPTION)) {
+            bundle.getString(KEY_DESCRIPTION).also {
+                binding.descriptionAnime.text = it
+            }
+        }
+
+        if (bundle.containsKey(KEY_FAVOURITE)) {
+            bundle.getBoolean(KEY_FAVOURITE).also {
+                binding.btnFavourite.setFavourite(it)
+            }
+        }
+    }
+
+    private fun ImageView.setFavourite(isFavourite: Boolean){
+        setImageResource(
+            if (isFavourite) {
+                R.drawable.baseline_favorite_24
+            } else {
+                R.drawable.baseline_favorite_border_24
+            }
+        )
     }
 }
