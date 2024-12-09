@@ -102,7 +102,7 @@ class HomeFragment : Fragment() {
         const val HOME_FRAGMENT_TAG = "HomeFragment"
         const val ARG_KEY = "ARG_KEY"
 
-        fun newInstance(arg: String) = HomeFragment().apply {
+        fun newInstance(arg: String): HomeFragment = HomeFragment().apply {
             arguments = Bundle().apply {
                 putString(ARG_KEY, arg)
             }
