@@ -115,6 +115,11 @@ class HomeFragment : Fragment() {
             fragment.arguments = bundle
             return fragment
         }
+
+        fun bundleArgs(args: Boolean = true) = Bundle().apply {
+            putBoolean(ARG_KEY, args)
+        }
+
     }
 
 }
