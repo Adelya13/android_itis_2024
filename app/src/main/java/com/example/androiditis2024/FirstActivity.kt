@@ -6,8 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.example.androiditis2024.HomeFragment.Companion.HOME_FRAGMENT_TAG
-import com.example.androiditis2024.HomeFragment.Companion.newInstance
 import com.example.androiditis2024.databinding.FirstActivityBinding
 
 class FirstActivity: AppCompatActivity() {
@@ -17,7 +15,6 @@ class FirstActivity: AppCompatActivity() {
     @SuppressLint("QueryPermissionsNeeded")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.first_activity)
 
         binding = FirstActivityBinding.inflate(layoutInflater).also {
             setContentView(it.root)

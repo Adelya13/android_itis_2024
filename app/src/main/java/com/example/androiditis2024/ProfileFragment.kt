@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.navigation.fragment.findNavController
 import com.example.androiditis2024.databinding.FragmentPofileBinding
 
 
@@ -26,7 +24,8 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         profilebinding =  FragmentPofileBinding.bind(view)
 
-        findNavController().navigate(R.id.action_profileFragment_to_homeFragment, HomeFragment.bundleArgs(true))
+
+//        findNavController().navigate(R.id.action_profileFragment_to_homeFragment, HomeFragment.bundleArgs(true))
 
 //        profilebinding?.text?.setOnClickListener{
 //            Toast.makeText(requireContext(), "HELLO", Toast.LENGTH_LONG).show()

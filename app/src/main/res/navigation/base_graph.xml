@@ -19,7 +19,7 @@
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            app:popExitAnim="@android:anim/slide_out_right"/>
         <action
             android:id="@+id/action_homeFragment_to_base_graph"
             app:destination="@id/base_graph" />
@@ -36,10 +36,25 @@
         <action
             android:id="@+id/action_profileFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <argument
+            android:name="user_id"
+            app:argType="integer"
+            android:defaultValue="0"
+            />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.androiditis2024.SettingsFragment"
         tools:layout="@layout/fragment_settings"
-        android:label="SettingsFragment" />
+        android:label="SettingsFragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 </navigation>

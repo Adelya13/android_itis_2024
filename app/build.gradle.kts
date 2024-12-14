@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.navigation.safeargs) apply false
 }
 
 android {
@@ -49,7 +50,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(libs.material.v150)
+//    implementation(libs.material.v150)
 
     // Views/Fragments integration
     implementation(libs.androidx.navigation.fragment)
@@ -57,8 +58,5 @@ dependencies {
 
     // Feature module support for Fragments
     implementation(libs.androidx.navigation.dynamic.features.fragment)
-
-    //safe args
-    implementation(libs.androidx.navigation.safe.args.gradle.plugin)
 
 }
