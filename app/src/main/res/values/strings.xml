@@ -2,4 +2,6 @@
     <string name="app_name">Android ITIS 2024</string>
     <string name="button_one">BUTTON 1</string>
     <string name="button_2">Button 2</string>
+    <string name="default_notification_channel_id">0</string>
+    <string name="default_notification_channel_name">Cat Notification</string>
 </resources>
