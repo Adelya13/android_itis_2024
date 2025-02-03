@@ -20,12 +20,42 @@
 
     <TextView
         android:id="@+id/tv_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="HELLO"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        style="@style/MainTextStyle"
+        android:text="Anime"
+        android:textAppearance="@style/MainText.Large"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_value2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/button_1" />
+        app:layout_constraintTop_toBottomOf="@+id/cat" />
+
+
+    <TextView
+        android:id="@+id/tv_value2"
+        style="@style/MainTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textAllCaps="false"
+        android:textAppearance="@style/MainText.Medium"
+        android:text="Hello"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_value" />
+
+    <TextView
+        android:id="@+id/tv_value3"
+        android:layout_width="match_parent"
+        style="@style/MainTextStyle"
+        android:layout_height="40dp"
+        android:textAppearance="@style/MainText.Small"
+        android:text="Play"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_value2" />
 
     <Button
         android:id="@+id/button_1"

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MainText" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/purple_700</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name = "MainText.Large">
+        <item name="android:textSize">20sp</item>
+        <item name="android:letterSpacing">.1</item>
+    </style>
+
+    <style name = "MainText.Medium">
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">.2</item>
+    </style>
+
+    <style name = "MainText.Small">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">.3</item>
+    </style>
+
+</resources>

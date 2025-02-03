@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name = "MainTextStyle">
+        <item name="android:paddingTop">4dp </item>
+        <item name="android:paddingStart">4dp </item>
+        <item name="android:paddingEnd">4dp </item>
+        <item name="android:paddingBottom">4dp </item>
+        <item name = "android:textAlignment">center</item>
+        <item name = "autoSizeMaxTextSize"> 40sp</item>
+        <item name = "autoSizeMinTextSize">12sp</item>
+        <item name = "autoSizeTextType">uniform</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+</resources>
