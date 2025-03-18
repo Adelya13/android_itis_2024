@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.androiditis2024"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.androiditis2024"
@@ -40,6 +40,9 @@ android {
 }
 
 dependencies {
+
+    // Kotlin + coroutines
+    implementation(libs.androidx.work.runtime.ktx)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
