@@ -1,11 +1,12 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.detekt)
 }
 
 android {
     namespace = "com.example.androiditis2024"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.androiditis2024"
@@ -19,6 +20,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 
     buildTypes {
@@ -37,9 +39,25 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
 }
 
 dependencies {
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.adapter.rxjava2)
+
+    //okhttp
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+
+    //coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
+    //gson
+    implementation(libs.gson)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -50,4 +68,13 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.material.v150)
+
+
+}
+
+detekt {
+    buildUponDefaultConfig = true
+    allRules = false
+    config.setFrom("/Users/amvalisheva/AndroidStudioProjects/AndroidITIS2024/config/detekt.yml")
+    baseline = file("/Users/amvalisheva/AndroidStudioProjects/AndroidITIS2024/config/baseline.xml")
 }
