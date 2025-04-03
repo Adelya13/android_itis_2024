@@ -1,4 +1,4 @@
-package com.example.androiditis2024.data.api
+package com.example.androiditis2024.data.api.response
 
 data class Coord(
     val lat: Double,

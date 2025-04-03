@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:id="@+id/content"
-    tools:context=".FirstActivity">
+    tools:context=".presentation.FirstActivity">
 
     <Button
         android:id="@+id/button"

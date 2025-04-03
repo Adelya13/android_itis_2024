@@ -1,13 +1,21 @@
 package com.example.androiditis2024.data
 
-import com.example.androiditis2024.data.api.WeatherResponse
+import com.example.androiditis2024.data.api.mapper.WeatherMapper
+import com.example.androiditis2024.data.api.response.WeatherApi
+import com.example.androiditis2024.domain.entities.Weather
+import com.example.androiditis2024.domain.repository.WeatherRepository
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class WeatherRepository {
+class WeatherRepositoryImpl(
+//    private val api: WeatherApi,
+//    private val dbDao: Dao,
+//    private val memory: Memory,
+    val weatherMapping: WeatherMapper,
+) : WeatherRepository {
 
     private val apiKeyInterceptor = Interceptor { chain ->
         val original = chain.request()
@@ -46,8 +54,8 @@ class WeatherRepository {
 
     }
 
-    suspend fun getWeather(city: String) : WeatherResponse {
-        return api.getWeather(city)
+    override suspend fun getWeather(city: String) : Weather {
+        return weatherMapping.map(api.getWeather(city))
     }
 }
 

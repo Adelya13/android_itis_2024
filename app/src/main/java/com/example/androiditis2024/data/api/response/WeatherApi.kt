@@ -1,6 +1,5 @@
-package com.example.androiditis2024.data
+package com.example.androiditis2024.data.api.response
 
-import com.example.androiditis2024.data.api.WeatherResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

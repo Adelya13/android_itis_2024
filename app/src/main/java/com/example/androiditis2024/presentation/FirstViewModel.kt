@@ -1,0 +1,40 @@
+package com.example.androiditis2024.presentation
+
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.androiditis2024.domain.entities.Weather
+import com.example.androiditis2024.domain.usecase.GetWeatherUseCase
+import kotlinx.coroutines.launch
+
+class FirstViewModel(
+    private val getWeatherUseCase: GetWeatherUseCase
+) : ViewModel() {
+
+    private var _weather: MutableLiveData<Result<Weather>> = MutableLiveData()
+    val weather: LiveData<Result<Weather>> = _weather
+
+    private var _error: MutableLiveData<Exception> = MutableLiveData()
+    val error: LiveData<Exception> = _error
+
+
+    fun onGetWeatherOnClick(city: String) {
+        viewModelScope.launch {
+            try {
+                val weather = getWeatherUseCase(city)
+                _weather.value = Result.success(weather)
+            } catch (ex: Exception) {
+
+                _weather.value = Result.failure(ex)
+
+                _error.value = ex
+            }
+
+        }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+    }
+}
