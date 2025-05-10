@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.detekt)
+    kotlin("kapt")
 }
 
 android {
@@ -44,6 +45,12 @@ android {
 
 dependencies {
 
+    //Dagger
+    implementation(libs.dagger)
+    implementation(libs.daggerAndroidSupport)
+    kapt(libs.daggerCompiler)
+    kapt(libs.daggerAndroidProcessor)
+
     // Retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
@@ -71,7 +78,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.material.v150)
-
 
 }
 

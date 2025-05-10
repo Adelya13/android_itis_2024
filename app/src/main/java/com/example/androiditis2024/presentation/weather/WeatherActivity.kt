@@ -1,34 +1,40 @@
-package com.example.androiditis2024.presentation
+package com.example.androiditis2024.presentation.weather
 
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
+import com.example.androiditis2024.App
 import com.example.androiditis2024.R
-import com.example.androiditis2024.data.WeatherRepositoryImpl
-import com.example.androiditis2024.data.api.mapper.WeatherMapper
 import com.example.androiditis2024.databinding.FirstActivityBinding
-import com.example.androiditis2024.domain.usecase.GetWeatherUseCase
-import com.example.androiditis2024.utils.ViewModelFactory
+import com.example.androiditis2024.utils.AppViewModelFactory
 import com.google.android.material.snackbar.Snackbar
+import dagger.android.AndroidInjection
 import retrofit2.HttpException
+import javax.inject.Inject
 
-class FirstActivity: AppCompatActivity() {
+class WeatherActivity: AppCompatActivity() {
 
     private var binding: FirstActivityBinding? = null
 
-    private lateinit var getWeatherUseCase: GetWeatherUseCase
+    @Inject
+    lateinit var factory: AppViewModelFactory
 
-    private lateinit var viewModel: FirstViewModel
+    private val viewModel: WeatherViewModel by viewModels {
+        factory
+    }
+
 
     @SuppressLint("ShowToast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.first_activity)
 
-        initObjects()
+//        (application as App).appComponent.inject(this)
+        AndroidInjection.inject(this)
+
         initObservers()
 
         binding = FirstActivityBinding.inflate(layoutInflater).also {
@@ -64,20 +70,6 @@ class FirstActivity: AppCompatActivity() {
                 }
             }
         }
-    }
-
-    private fun initObjects() {
-        getWeatherUseCase = GetWeatherUseCase(
-            weatherRepository = WeatherRepositoryImpl(
-                weatherMapping = WeatherMapper()
-            )
-        )
-
-        viewModel = ViewModelProvider(this, ViewModelFactory(GetWeatherUseCase(
-            weatherRepository = WeatherRepositoryImpl(
-                weatherMapping = WeatherMapper()
-            )
-        )))[FirstViewModel::class.java]
     }
 
     override fun onDestroy() {

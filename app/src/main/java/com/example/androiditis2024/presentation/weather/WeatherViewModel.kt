@@ -1,4 +1,4 @@
-package com.example.androiditis2024.presentation
+package com.example.androiditis2024.presentation.weather
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,8 +7,9 @@ import androidx.lifecycle.viewModelScope
 import com.example.androiditis2024.domain.entities.Weather
 import com.example.androiditis2024.domain.usecase.GetWeatherUseCase
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class FirstViewModel(
+class WeatherViewModel @Inject constructor(
     private val getWeatherUseCase: GetWeatherUseCase
 ) : ViewModel() {
 
